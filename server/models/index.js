@@ -20,8 +20,8 @@ const Photo = require("./photo.js")(sequelize, Sequelize);
 Album.belongsToMany(Photo, { through: 'album_photo', onDelete: 'cascade ', hooks: true});
 Photo.belongsToMany(Album, { through: 'album_photo', hooks: true});
 
-User.belongsToMany(Album, { through: 'album_photo', hooks: true});
-Album.belongsToMany(User, { through: 'album_photo', hooks: true});
+User.belongsToMany(Album, { through: 'user_album', hooks: true});
+Album.belongsToMany(User, { through: 'user_album', hooks: true});
 
 
 sequelize.sync().then(()=>{
