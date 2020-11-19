@@ -19,6 +19,9 @@
             <b-navbar-item v-if="isLoggedIn && isAdmin" href="/admin">
                 AdminZone
             </b-navbar-item>
+             <b-navbar-item v-if="isLoggedIn && isAdmin" href="/mesaje">
+                Mesaje
+            </b-navbar-item>
         </template>
         <template slot="end">
             <h1 v-if="isLoggedIn">Bine ai venit, {{userName}}</h1>

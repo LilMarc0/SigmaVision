@@ -79,7 +79,6 @@ export default {
                 trapFocus: true,
                 width: 720,
                 events: {
-                    
                     'insert': insertedPhoto => {
                         console.log("modal catre chapters: ", insertedPhoto);
                         this.$emit('insertPhoto', insertedPhoto);
@@ -91,7 +90,9 @@ export default {
             this.$emit('viewPhoto', photo)
         },
         stergeSelectii(){
-            this.selectii.forEach((selectie) => {
+            console.log(this.selectii);
+            this.selectii.forEach((selectie, index) => {
+                console.log(this.selectii);
                 this.$axios.delete(`/photo/${selectie.id}`).then((res)=>{
                     this.$buefy.snackbar.open({
                         duration: 5000,

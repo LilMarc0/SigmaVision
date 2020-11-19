@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = function(sequelize, DataTypes) {
     return sequelize.define('album', {
       nume: {
@@ -8,11 +10,37 @@ module.exports = function(sequelize, DataTypes) {
       descriere: {
           type: DataTypes.STRING
       },
-      creator: {
-        type: DataTypes.STRING
-      },
       coperta: {
         type: DataTypes.STRING
+      }
+    },{
+      hooks: {
+        beforeDestroy(album) {
+          console.log('--------', '../static/' + album.coperta);
+          try{
+            console.log('--------', '../static/' + album.coperta);
+            fs.unlink('../static/' + album.coperta, err => {
+              if (err) console.log(err);
+            });
+          } catch(err) {
+            console.log(err)
+
+          }
+        },
+        beforeBulkDestroy(album) {
+          console.log('--------', '../static/' + album.coperta);
+
+          try{
+            console.log('--------', '../static/' + album.coperta);
+            fs.unlink('../static/' + album.coperta, err => {
+              if (err) console.log(err);
+            });
+          } catch(err) {
+            console.log(err)
+
+          }
+
+        }
       }
     });
   };

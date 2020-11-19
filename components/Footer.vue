@@ -24,9 +24,6 @@
                 </div>
 
             </div>
-            <div>
-                <h1>Link-uri rapide</h1>    
-            </div>
         </div>
     </div>
   </div>
@@ -45,7 +42,7 @@
 
     .grid {
         display: grid;
-        grid-template-columns: 20% 80%;
+        grid-template-columns: 25% 75%;
     }
 
     .logo > img {
@@ -56,7 +53,7 @@
     .grid2{
         margin-top: 2rem;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     h1, article {

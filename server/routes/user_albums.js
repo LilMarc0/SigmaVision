@@ -6,7 +6,7 @@ const multer = require("multer");
 let fs      = require('fs')
 var upload = multer({ dest: '../static/' })
 
-const {Photo, Album} = require('../models');
+const {User, Album} = require('../models');
 
 
 router.post('/:idAlbum', upload.fields([{'name':'img'}]), async (req, res) => {
@@ -17,8 +17,8 @@ router.post('/:idAlbum', upload.fields([{'name':'img'}]), async (req, res) => {
     }
     console.log(model);
     const photo = await Photo.create(model);
-    photo.addAlbums(req.params.idAlbum);
-    res.json(photo);
+    photo.addAlbums(req.params.idAlbum);  
+    res.json(model);
 })
 
 module.exports = router

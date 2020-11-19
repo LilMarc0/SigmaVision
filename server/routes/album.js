@@ -6,31 +6,33 @@ let fs      = require('fs')
 var upload = multer({ dest: '../static/' })
 
 
-const {Album, Photo} = require('../models')
+const {Album, Photo, User} = require('../models')
 
 router.get('/', (req, res)=>{
-    Album.findAll().then(albume => res.send(albume));
+    Album.findAll({include: User}).then(albume => res.send(albume));
 })
 
 router.get('/:id', (req, res) => {
     Album.findByPk(req.params.id, {include: [{model: Photo}]}).then(album => res.send(album))
 });
 
-router.post('/', upload.fields([{'name': 'img'}]), (req, res) => {
+router.post('/', upload.fields([{'name': 'img'}]), async (req, res) => {
   let model = JSON.parse(req.body.model);
-  console.log(req.files)
   model.coperta =  req.files.img[0].filename;
-  model.creator = req.user.username;
   delete model.fotografie;
-  console.log(model);
-  Album.create(model).then((album)=>{
-    if(album) res.send(album);
-    else res.send({message: 'bad'});
-  })
+
+  let album = await Album.create(model);
+  let user = await User.findByPk(req.user.id);
+  await user.addAlbum(album.id);
+
+  const ret = await Album.findByPk(album.id, {include: [{model: User}]});
+  console.log(ret);
+  res.send(ret);
+
 })
 
 router.put('/:id', async (req, res) => {
-    const album = await Album.findById(req.params.id);
+    const album = await Album.findByPk(req.params.id);
     if (!album) {
       return res.status(404).send('Category with submitted ID not found');
     }
@@ -43,7 +45,7 @@ router.put('/:id', async (req, res) => {
   });
 
   router.delete('/:id', async (req, res) => {
-    const album = await Album.findById(req.params.id);
+    const album = await Album.findByPk(req.params.id);
     if (!album) {
       return res.status(404).send('Category with submitted ID not found');
     }
@@ -51,4 +53,8 @@ router.put('/:id', async (req, res) => {
     res.send(album);
   });
 
+  router.get('/hall/hall', async (req, res) => {
+    const album = await Album.findOne({where: {nume: "Hall of Fame"}, include: [{model: Photo}]})
+    res.send(album.photos)
+  });
 module.exports = router

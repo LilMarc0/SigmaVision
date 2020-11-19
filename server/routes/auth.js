@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 const {User} = require('../models');
 const { kStringMaxLength } = require('buffer');
 console.log(User);
+
 router.post('/login', (req, res) => {
     const email = req.body.email;
     const pass = req.body.password;

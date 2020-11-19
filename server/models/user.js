@@ -21,6 +21,9 @@ module.exports = function(sequelize, DataTypes) {
       },
       username: {
         type: DataTypes.STRING
+      },
+      linkPhoto: {
+        type: DataTypes.STRING
       }
     });
 };

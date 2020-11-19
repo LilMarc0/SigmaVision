@@ -65,15 +65,22 @@ export default {
     },
     methods: {
         async handleInput() {
-
-        let fd = new FormData();
-        fd.append('img', this.model.fotografie);
-        fd.append('model', JSON.stringify(this.model));
-        this.$axios.post('/albume', fd,{
-            headers: {
-                'Content-Type': 'multipart/form-data'
-                }
-            }).then(()=>this.$router.push('/galerie'));
+            let fd = new FormData();
+            fd.append('img', this.model.fotografie);
+            fd.append('model', JSON.stringify(this.model));
+            this.$axios.post('/albume', fd,{
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                    }
+                }).then((res)=>{
+                    this.$emit("insert", res.data);
+                    this.$buefy.snackbar.open({
+                        duration: 5000,
+                        message: `Albumul a fost adaugat.`,
+                        position: 'is-bottom-left',
+                    })
+                    this.$emit('close');
+                });
         },
         deleteDropFile() {
             this.model.fotografie = null;

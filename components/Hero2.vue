@@ -47,7 +47,7 @@ export default {
     }
 
     .my-container{
-      margin-left: 10rem;
+      margin-left: 10rem auto;
       padding-left: 10rem;
     }
 </style>

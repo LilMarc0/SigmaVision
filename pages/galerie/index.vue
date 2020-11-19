@@ -23,10 +23,6 @@ export default {
         return {
             albume: null,
             loading: true,
-                  images: [
-        'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/nature-quotes-1557340276.jpg?crop=0.666xw:1.00xh;0.168xw,0&resize=640:*',
-      ],
-      index: null
         }
     },
     methods: {
@@ -38,14 +34,19 @@ export default {
                     component: AlbumForm,
                     hasModalCard: true,
                     customClass: 'custom-class custom-class-2',
-                    trapFocus: true
+                    trapFocus: true,
+                    events: {
+                        'insert': album => {
+                            this.albume.push(album);
+                    }
+                }
                 })
         }
     },
     mounted() {
         this.$axios.get('/albume').then((res)=>{
             this.albume = res.data;
-            setTimeout(function(){this.loading = false}.bind(this), 100);
+            setTimeout(function(){this.loading = false}.bind(this), Math.floor(Math.random() * 125) + 75);
         })
     }
 }

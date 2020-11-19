@@ -34,7 +34,7 @@ export default {
         width: 100%;
         height: 100vh;
         background-color: black;
-
+        display: flex;
     }
 
     .title{
@@ -47,7 +47,7 @@ export default {
     }
 
     .my-container{
-      margin-left: 10rem;
+      margin-left: 10rem auto;
       padding-left: 10rem;
     }
 </style>

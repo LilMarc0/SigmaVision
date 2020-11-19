@@ -1,11 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 
+
+
 var corsMiddleware = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*'); //replace localhost with actual host
     res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, PATCH, POST, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Authorization');
-
     next();
 }
 
@@ -31,11 +32,16 @@ const userRouter = require('./routes/user');
 const authRouter = require('./routes/auth');
 const albumPhotoRouter = require('./routes/album_photos');
 const photoRouter = require('./routes/photo');
+const miscRouter = require('./routes/misc');
+const msgRouter = require('./routes/message');
+
 
 app.use('/albume', albumRouter);
 app.use('/photo', photoRouter)
 app.use(authRouter);
 app.use('/album_has_photos', albumPhotoRouter);
+app.use('/misc', miscRouter);
+app.use('/message', msgRouter);
 
 // Returneaza userul pentru autentificare n shit
 app.get('/me', (req, res) => {
@@ -51,6 +57,6 @@ app.get('/me', (req, res) => {
 
 });
 
-app.listen(process.env.PORT || 5001, () => {
+app.listen(5001, '192.168.1.222', () => {
     console.log('Server runnin');
 });

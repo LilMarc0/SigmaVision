@@ -3,10 +3,9 @@
 
 
     <div class="content">
-    </stack>
       <h1 class="title">Cine suntem noi?</h1>
-      <article class="left">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos odio cumque corporis quia quisquam esse sint suscipit sed autem eos ullam ipsum deserunt sit aspernatur soluta, quam aliquid, magni reprehenderit maxime numquam vero alias consectetur? Quasi eaque alias accusamus nam vitae natus molestias. Id quam iure obcaecati mollitia at officiis assumenda facere sit eum magnam pariatur, corporis temporibus fuga molestiae incidunt quis tempora facilis expedita quisquam earum blanditiis nesciunt. Tempore, fugit. Provident tenetur dignissimos a consequatur dolores impedit suscipit quidem ab, ad quasi odit voluptatum. At vero eius earum beatae quidem. Eaque reprehenderit dolores praesentium, quaerat, corrupti doloremque at quas reiciendis quo nam, consequuntur magni! Mollitia labore expedita rerum! Possimus debitis placeat ex aspernatur itaque quam amet ullam, aperiam cum obcaecati quod dolorem, illo incidunt iure, ratione molestias eum consequuntur tenetur? Tempora accusamus numquam magni? Quasi debitis doloremque libero laboriosam necessitatibus, aliquam dignissimos dolore explicabo expedita illo, ea incidunt sint assumenda ipsam saepe unde! Sequi repellendus earum consequuntur officiis repudiandae adipisci ad aliquid debitis molestias, fugiat excepturi. Iure eligendi tempore esse vitae dolore fugit ipsa, beatae excepturi suscipit dignissimos corporis consequuntur iusto voluptatum possimus officia voluptates tenetur maxime? Commodi velit vel sunt veniam harum aspernatur possimus laboriosam? Quisquam cumque in inventore illum dolor voluptatum harum facilis, similique, numquam consequatur fugit nostrum! Suscipit dignissimos labore et repellendus ut animi totam, assumenda ipsa quisquam culpa expedita asperiores aut veritatis vitae necessitatibus! Quas, tenetur. Aut dolor similique, reiciendis ex tempora debitis sed, omnis velit voluptatem, cupiditate recusandae. Culpa, nihil incidunt. Perspiciatis sint, maiores architecto tempora, nam accusamus unde velit vitae, ea quidem quo iste ut. Esse nesciunt provident commodi, assumenda voluptates nobis aut. Et beatae, quasi voluptates aliquam itaque id dolor debitis ea! Voluptas ullam atque nemo doloribus quo aliquid. Dolores sed ipsa delectus officia mollitia impedit pariatur! Tempore provident laborum ut eius temporibus quisquam culpa sed error quis reprehenderit illum ad officia, delectus natus. Quae animi voluptates cumque dolores aut quos voluptas impedit eum. Sequi consectetur asperiores corrupti, provident accusamus repellendus in nobis qui ratione commodi amet sint officiis animi quisquam earum numquam possimus! Quae quia quas fuga! Ipsa nulla repellendus est dolores culpa provident unde quaerat perferendis magnam sunt adipisci quod fugiat quibusdam deleniti, itaque sed in error voluptates. Nemo vel earum unde odio quas sapiente repudiandae veniam ut magni minus assumenda similique tempore ullam modi, minima eaque at laboriosam corrupti, hic id illo dolorem debitis quos numquam. Temporibus dolore non eos ipsa sit illum illo mollitia atque facere itaque quaerat aliquam nesciunt natus placeat veritatis, recusandae consectetur alias voluptatibus. Aperiam sint obcaecati animi quia voluptates rerum dicta? Doloremque blanditiis veniam nulla eius at repellat, exercitationem tempora! Expedita dicta deserunt provident, repellat vitae quam maxime ab esse dolore nostrum accusantium reprehenderit?
+      <article v-if="textMain" class="left">
+        {{textMain.cine}}
       </article>
     </div>
 
@@ -23,8 +22,8 @@
       <h1 class="title">Ce servicii oferim?</h1>
     </div>
     <div class="content2">
-      <article class="right">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos odio cumque corporis quia quisquam esse sint suscipit sed autem eos ullam ipsum deserunt sit aspernatur soluta, quam aliquid, magni reprehenderit maxime numquam vero alias consectetur? Quasi eaque alias accusamus nam vitae natus molestias. Id quam iure obcaecati mollitia at officiis assumenda facere sit eum magnam pariatur, corporis temporibus fuga molestiae incidunt quis tempora facilis expedita quisquam earum blanditiis nesciunt. Tempore, fugit. Provident tenetur dignissimos a consequatur dolores impedit suscipit quidem ab, ad quasi odit voluptatum. At vero eius earum beatae quidem. Eaque reprehenderit dolores praesentium, quaerat, corrupti doloremque at quas reiciendis quo nam, consequuntur magni! Mollitia labore expedita rerum! Possimus debitis placeat ex aspernatur itaque quam amet ullam, aperiam cum obcaecati quod dolorem, illo incidunt iure, ratione molestias eum consequuntur tenetur? Tempora accusamus numquam magni? Quasi debitis doloremque libero laboriosam necessitatibus, aliquam dignissimos dolore explicabo expedita illo, ea incidunt sint assumenda ipsam saepe unde! Sequi repellendus earum consequuntur officiis repudiandae adipisci ad aliquid debitis molestias, fugiat excepturi. Iure eligendi tempore esse vitae dolore fugit ipsa, beatae excepturi suscipit dignissimos corporis consequuntur iusto voluptatum possimus officia voluptates tenetur maxime? Commodi velit vel sunt veniam harum aspernatur possimus laboriosam? Quisquam cumque in inventore illum dolor voluptatum harum facilis, similique, numquam consequatur fugit nostrum! Suscipit dignissimos labore et repellendus ut animi totam, assumenda ipsa quisquam culpa expedita asperiores aut veritatis vitae necessitatibus! Quas, tenetur. Aut dolor similique, reiciendis ex tempora debitis sed, omnis velit voluptatem, cupiditate recusandae. Culpa, nihil incidunt. Perspiciatis sint, maiores architecto tempora, nam accusamus unde velit vitae, ea quidem quo iste ut. Esse nesciunt provident commodi, assumenda voluptates nobis aut. Et beatae, quasi voluptates aliquam itaque id dolor debitis ea! Voluptas ullam atque nemo doloribus quo aliquid. Dolores sed ipsa delectus officia mollitia impedit pariatur! Tempore provident laborum ut eius temporibus quisquam culpa sed error quis reprehenderit illum ad officia, delectus natus. Quae animi voluptates cumque dolores aut quos voluptas impedit eum. Sequi consectetur asperiores corrupti, provident accusamus repellendus in nobis qui ratione commodi amet sint officiis animi quisquam earum numquam possimus! Quae quia quas fuga! Ipsa nulla repellendus est dolores culpa provident unde quaerat perferendis magnam sunt adipisci quod fugiat quibusdam deleniti, itaque sed in error voluptates. Nemo vel earum unde odio quas sapiente repudiandae veniam ut magni minus assumenda similique tempore ullam modi, minima eaque at laboriosam corrupti, hic id illo dolorem debitis quos numquam. Temporibus dolore non eos ipsa sit illum illo mollitia atque facere itaque quaerat aliquam nesciunt natus placeat veritatis, recusandae consectetur alias voluptatibus. Aperiam sint obcaecati animi quia voluptates rerum dicta? Doloremque blanditiis veniam nulla eius at repellat, exercitationem tempora! Expedita dicta deserunt provident, repellat vitae quam maxime ab esse dolore nostrum accusantium reprehenderit?
+      <article v-if="textMain" class="left">
+        {{textMain.servicii}}
       </article>
     </div>
 
@@ -35,12 +34,12 @@
           <article>
             Raspundem repede tututor solicitarilor si ne facem treaba cu pasiune si placere.
           </article>
-          <h2 class="title">Adresa: </h2>
-          <p>plm nu o mai stiu</p>
-                    <h2 class="title">Numar de telefon: </h2>
-          <p>plm nu o mai stiu</p>
-                    <h2 class="title">Email: </h2>
-          <p>plm nu o mai stiu</p>
+          <h2 class="title">Adresa: </h2> 
+          <p>Strada Mihai Eminescu, nr 22, Orsova</p><br>
+          <h2 class="title">Numar de telefon: </h2>
+          <p></p>
+          <h2 class="title">Email: </h2>
+          <p>plm nu mai stiu</p>
         </div>
         <div class="hf2">
             <Formular/>
@@ -67,27 +66,14 @@
 export default {
   data(){
     return {
-      images: [
-        '350x150',
-        '300x500',
-        '400x200',
-        '200x200',
-        '400x400',
-        '200x200',
-        '200x250',
-        '500x500',
-        '300x250',
-        '400x200',
-        '200x300',
-        '300x300',
-        '500x200',
-        ],
-        album: null
-
+        album: null,
+        textMain: null
     }
   },
   mounted(){
-
+    this.$axios.get('/misc').then((res)=>{
+      this.textMain = res.data;
+    })
   },
   methods: {
 
@@ -109,11 +95,26 @@ export default {
     padding-left: 6rem;
       font-family: Garamond, serif;
       grid-column: 1/8;
+      text-align: justify;
+        width: 100%;
   }
+
+  .content2 {
+    padding-left: 8rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+        padding-right: 3rem;
+
+    display: flex;
+    flex-direction: column;
+  }
+
   .right {
         padding-left: 6rem;
       font-family: Garamond, serif;
       grid-column: 2/10;
+        text-align: justify;
+          width: 100%;
   }
   .jr {
     text-align: right;
@@ -125,13 +126,7 @@ export default {
     margin-top: 2rem;
   }
 
-  .content2 {
-    padding-left: 8rem;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-  }
+
 
   article, h1 {
     color: rgb(236, 221, 208);
@@ -173,4 +168,31 @@ export default {
   .maps {
     width: 100%
   }
+
+@media only screen and (max-width: 1000px){
+  .left {
+    padding-left: 1rem;
+    font-family: Garamond, serif;
+    text-align: justify;
+    width: 100%;
+  }
+
+  .right {
+      padding-left: 0;
+      font-family: Garamond, serif;
+      text-align: justify;
+      width: 100%;
+  }
+
+  .content {
+    padding-left: 1rem;
+  }
+
+  .content2 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+}
+
 </style>
+
