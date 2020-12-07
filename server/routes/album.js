@@ -4,6 +4,7 @@ const router = express.Router();
 const multer = require("multer");
 let fs      = require('fs')
 var upload = multer({ dest: '../static/' })
+const roles = require('../middlewares/checkRole');
 
 
 const {Album, Photo, User} = require('../models')
@@ -16,7 +17,7 @@ router.get('/:id', (req, res) => {
     Album.findByPk(req.params.id, {include: [{model: Photo}]}).then(album => res.send(album))
 });
 
-router.post('/', upload.fields([{'name': 'img'}]), async (req, res) => {
+router.post('/', roles.allowAdminMod, upload.fields([{'name': 'img'}]), async (req, res) => {
   let model = JSON.parse(req.body.model);
   model.coperta =  req.files.img[0].filename;
   delete model.fotografie;
@@ -31,7 +32,7 @@ router.post('/', upload.fields([{'name': 'img'}]), async (req, res) => {
 
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id',roles.allowAdminMod, async (req, res) => {
     const album = await Album.findByPk(req.params.id);
     if (!album) {
       return res.status(404).send('Category with submitted ID not found');
@@ -44,7 +45,7 @@ router.put('/:id', async (req, res) => {
     }
   });
 
-  router.delete('/:id', async (req, res) => {
+  router.delete('/:id', roles.allowAdminMod, async (req, res) => {
     const album = await Album.findByPk(req.params.id);
     if (!album) {
       return res.status(404).send('Category with submitted ID not found');

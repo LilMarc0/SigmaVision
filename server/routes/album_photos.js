@@ -7,9 +7,9 @@ let fs      = require('fs')
 var upload = multer({ dest: '../static/' })
 
 const {Photo, Album} = require('../models');
+const roles = require('../middlewares/checkRole');
 
-
-router.post('/:idAlbum', upload.fields([{'name':'img'}]), async (req, res) => {
+router.post('/:idAlbum', roles.allowAdminMod, upload.fields([{'name':'img'}]), async (req, res) => {
     let model = {
         thumbNail: req.files.img[0].path.split('/')[2],
         extensie: req.files.img[0].mimetype,
