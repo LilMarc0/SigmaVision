@@ -42,6 +42,7 @@ app.use(authRouter);
 app.use('/album_has_photos', albumPhotoRouter);
 app.use('/misc', miscRouter);
 app.use('/message', msgRouter);
+app.use('/user', userRouter);
 
 // Returneaza userul pentru autentificare n shit
 app.get('/me', (req, res) => {
@@ -57,6 +58,6 @@ app.get('/me', (req, res) => {
 
 });
 
-app.listen(5001, '192.168.1.222', () => {
+app.listen(5001, 'localhost', () => {
     console.log('Server runnin');
 });

@@ -44,14 +44,19 @@ router.post('/login', (req, res) => {
 });
 
 
-
+// TODO: maybe delete, its unsafe
 router.post('/register', (req, res) => {
     req.body.passwordHash = crypto.createHash('sha256').update(req.body.password).digest('base64');
     delete req.body.password;
-    User.create(req.body).then(() => {
-        res.send({message: "ok"})
-    })
 
+    User.create(req.body)
+    .then(() => {
+        res.send({message: "User Created"});
+    })
+    .catch((err) => {
+        console.log("Error while creating user: ", err);
+        res.send(err);
+    });
 });
 
 module.exports = router

@@ -1,8 +1,9 @@
 const express = require('express');
-const router = express.Router();        
+const router = express.Router();  
+const jwt = require('jsonwebtoken');
 
 
-const {User1} = require('../models')
+const {User1, User} = require('../models')
 
 router.put('/:id', async (req, res) => {
     User.update(
@@ -13,5 +14,25 @@ router.put('/:id', async (req, res) => {
         res.json(rowsUpdated)
       })
 });
+
+router.get('/:username', async (req, res) => {
+  let user = await User.findOne({where: {username: req.params.username}});
+  user.passwordHash='';
+
+  
+  const payload = {
+    id: user.id,
+    username: user.username,
+    email: user.email,
+    role: user.rol
+  }
+  
+  const sesionid = jwt.sign(payload, process.env.TOKEN_SECRET);
+  
+  user.dataValues.sesion = sesionid;
+
+  res.send(user);
+});
+
 
 module.exports = router
