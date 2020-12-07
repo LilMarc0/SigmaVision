@@ -17,7 +17,7 @@
         </figure>
       </div>
       <div class="media-content">
-        <a class="title is-4" v-if="album.sigmausers[0]" @click="showCreator()">{{album.sigmausers[0].username}}</a> <br>
+        <p class="title is-4" v-if="album.sigmausers[0]">{{album.sigmausers[0].username}}</p>
         <p class="subtitle is-6"> {{ album.nume }}</p>
       </div>
     </div>
@@ -41,9 +41,6 @@ export default {
     methods: {
       moveTo() {
         this.$router.push(`/galerie/${this.album.id}`);
-      },
-      showCreator() {
-        this.$router.push(`/user/${this.album.sigmausers[0].username}`);
       }
     }
 }
