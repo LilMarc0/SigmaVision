@@ -41,7 +41,7 @@ export default {
 
   server: {
     port: process.env.PORT || 5000, // default: 3000
-    host: process.env.NODE_ENV === "production" ? "0.0.0.0" : "192.168.1.222" // "192.168.1.222"
+    host: process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost" // "192.168.1.222"
   },
 
   /*
@@ -65,7 +65,8 @@ export default {
   ],
   axios: {
     // proxyHeaders: false
-    baseURL: 'http://79.113.99.60:5001/'//'http://192.168.1.27:5001/' // 
+    // baseURL: 'http://79.113.99.60:5001/'//'http://192.168.1.27:5001/' // 
+    baseURL: 'http://localhost:5001/'
   },
   auth: {
     strategies: {
