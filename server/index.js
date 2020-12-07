@@ -43,7 +43,15 @@ app.use('/album_has_photos', albumPhotoRouter);
 app.use('/misc', miscRouter);
 app.use('/message', msgRouter);
 
-// Returneaza userul pentru autentificare n shit
+const rateLimit = require("express-rate-limit");
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minut
+  max: 50
+});
+app.use(limiter);
+
+
+// Returneaza userul pentru autentificare
 app.get('/me', (req, res) => {
     try{
         console.log('----')

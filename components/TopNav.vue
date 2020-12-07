@@ -16,10 +16,10 @@
             <b-navbar-item href="/galerie">
                 Galerie
             </b-navbar-item>
-            <b-navbar-item v-if="isLoggedIn && isAdmin" href="/admin">
+            <b-navbar-item v-if="isLoggedIn && (isAdmin || isModerator)" href="/admin">
                 AdminZone
             </b-navbar-item>
-             <b-navbar-item v-if="isLoggedIn && isAdmin" href="/mesaje">
+             <b-navbar-item v-if="isLoggedIn && (isAdmin || isModerator)" href="/mesaje">
                 Mesaje
             </b-navbar-item>
         </template>
@@ -45,6 +45,7 @@ export default {
     computed: {
         userName: function() {try {return this.$auth.user.username} catch{return "eroare userName"}},
         isAdmin: function() {try {return this.$auth.user.role == 'admin'} catch {return false}},
+        isModerator: function() {try {return this.$auth.user.role == 'moderator'} catch {return false}},
         isLoggedIn: function() {try { return this.$auth.loggedIn } catch{ return false}},
         credit: function() { return this.$store.getters.brainPoints}
     },

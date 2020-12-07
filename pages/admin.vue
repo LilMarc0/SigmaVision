@@ -8,6 +8,28 @@
         <b-input v-model="textMain.servicii" :value="textMain.servicii" type="textarea"></b-input>
       </b-field>
       <b-button @click="updateMain">Update</b-button>
+
+      <div v-if="$auth.user.role == 'admin'">
+        <h1>
+          Creeaza moderator
+        </h1>
+      <b-field class="field" label="Nume" v-if="textMain">
+        <b-input v-model="user.nume" :value="user.nume" type="text"></b-input>
+      </b-field>
+      <b-field class="field" label="Prenume" v-if="textMain">
+        <b-input v-model="user.prenume" :value="user.prenume" type="text"></b-input>
+      </b-field>
+      <b-field class="field" label="Username" v-if="textMain">
+        <b-input v-model="user.username" :value="user.username" type="text"></b-input>
+      </b-field>
+      <b-field class="field" label="Email" v-if="textMain">
+        <b-input v-model="user.email" :value="user.email" type="text"></b-input>
+      </b-field>
+      <b-field class="field" label="Parola" v-if="textMain">
+        <b-input v-model="user.password" :value="user.password" type="text"></b-input>
+      </b-field>
+      <b-button @click="creeazaUser">Creeaza</b-button>
+      </div>
   </div>
 </template>
 
@@ -16,6 +38,7 @@ export default {
   data(){
     return {
       textMain: null,
+      user: {linkPhoto: 'empty.png'}
     }
   },
   mounted(){
@@ -30,8 +53,13 @@ export default {
         //   this.textMain = res.data
         // })
       });
-
+    },
+    creeazaUser(){ 
+      this.$axios.post('/register', this.user).then(()=>{
+        this.$router.push('/');
+      })
     }
+
   }
 }
 </script>
