@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken')
 
 const {User} = require('../models');
-const { kStringMaxLength } = require('buffer');
+const roles = require('../middlewares/checkRole');
 
 router.post('/login', (req, res) => {
     const email = req.body.email;
@@ -43,7 +43,7 @@ router.post('/login', (req, res) => {
 
 
 // TODO: delete, it's not safe
-router.post('/register', (req, res) => {
+router.post('/register', roles.allowAdmin, (req, res) => {
     req.body.passwordHash = crypto.createHash('sha256').update(req.body.password).digest('base64');
     delete req.body.password;
     

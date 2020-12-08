@@ -36,8 +36,10 @@ router.get('/:username', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const user = await User.findByPk(req.params.id);
   if (user) {
-    await user.destroy();
-    res.send(user);
+    if(user.role != 'admin'){
+      await user.destroy();
+      res.send(user);
+    }
   }
 });
 

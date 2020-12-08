@@ -8,7 +8,6 @@
         <b-input v-model="textMain.servicii" :value="textMain.servicii" type="textarea"></b-input>
       </b-field>
       <b-button @click="updateMain">Update</b-button>
-
       <div v-if="$auth.user.role == 'admin'">
         <h1>
           Creeaza moderator
