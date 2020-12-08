@@ -5,8 +5,8 @@ const fs = require('fs');
 const {Misc} = require('../models');
 
 router.put('/', async (req, res) => {
-console.log(JSON.stringify(req.body));
-   fs.writeFile('misc.json', JSON.stringify(req.body), (err)=>{if (err) throw err})
+    console.log(JSON.stringify(req.body));
+    fs.writeFile('misc.json', JSON.stringify(req.body), (err)=>{if (err) throw err})
 });
 
 router.get('/', (req, res) => {

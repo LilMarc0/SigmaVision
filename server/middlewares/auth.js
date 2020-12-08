@@ -24,6 +24,7 @@ function checkTokenSetUser(req, res, next) {
 }
 
 function isLoggedIn(req, res, next) {
+  // TODO: vulnerability?
   if (req.user) {
     next();
   } else {

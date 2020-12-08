@@ -59,7 +59,8 @@ export default {
                 let fd = new FormData();
                 fd.append('img', photo);
 
-                this.$axios.post(`/album_has_photos/${album}`, fd,{
+                console.log("sending: ", photo);
+                this.$axios.post(`/album_has_photos/${album}`, fd, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                         }

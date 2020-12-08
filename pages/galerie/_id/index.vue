@@ -65,7 +65,6 @@ export default {
             this.album = res.data;
             console.log(this.album.photos);
             this.loading = false;
-
         });
 
     },

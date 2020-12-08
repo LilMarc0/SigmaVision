@@ -6,12 +6,11 @@ const jwt = require('jsonwebtoken')
 
 const {User} = require('../models');
 const { kStringMaxLength } = require('buffer');
-console.log(User);
 
 router.post('/login', (req, res) => {
     const email = req.body.email;
     const pass = req.body.password;
-    const hash = crypto.createHash('sha256').update(pass).digest('base64');
+    // const hash = crypto.createHash('sha256').update(pass).digest('base64');
     User.findOne({where: {email: email}}).then(user => {
         const hash = crypto.createHash('sha256').update(pass).digest('base64');
         if(hash === user.passwordHash){
@@ -23,10 +22,9 @@ router.post('/login', (req, res) => {
             }
             jwt.sign(payload, process.env.TOKEN_SECRET, { algorithm: 'RS256'}, (err, token) => {
                     if(err){
-                        console.log('Err');
                         res.send({ token: null, message: "no_account"})   
-                        console.log(err);
-                    } else{
+                        console.log('error while signing: ', err);
+                    } else {
                         console.log(`${user.username} s-a logat`);
                         res.json({
                             message: 'ok',

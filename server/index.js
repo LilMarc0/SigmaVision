@@ -56,14 +56,13 @@ app.use(limiter);
 app.get('/me', (req, res) => {
     try{
         console.log('----')
-        console.log(req.user)
+        console.log('user:', req.user)
         res.send({
             user: req.user
         })
     }catch(err){
         console.log('---me ', err);
     }
-
 });
 
 app.listen(5001, 'localhost', () => {
