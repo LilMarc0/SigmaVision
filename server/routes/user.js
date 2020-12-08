@@ -25,11 +25,9 @@ router.get('/:username', async (req, res) => {
     email: user.email,
     role: user.rol
   }
-
-  const sesionid = jwt.sign(payload, process.env.TOKEN_SECRET);
-
+  
+  const sesionid = jwt.sign(payload, process.env.TOKEN_SECRET, { algorithm: 'RS256'});
   user.dataValues.sesion = sesionid;
-
   res.send(user);
 });
 
