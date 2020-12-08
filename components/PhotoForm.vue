@@ -14,7 +14,7 @@
                     v-model="model.fotografii"
                     expanded
                     multiple
-                    accept=".jpg, .png, .jpeg"
+                    accept=".jpg, .png, .jpeg, .html"
                     drag-drop>
                     <span class="file-cta">
                         <b-icon class="file-icon" icon="upload"></b-icon>

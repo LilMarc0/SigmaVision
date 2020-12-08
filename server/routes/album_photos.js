@@ -6,11 +6,11 @@ let fs = require('fs');
 const multer = require('multer');
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '../static/'); 
+        cb(null, '../dist/'); 
     },    
     filename: (req, file, cb) => {
         let hashedName = crypto.createHash('sha256').update(file.originalname).digest('base64').toLowerCase();
-        hashedName = hashedName.substring(0, 5);    // avoid long path
+        hashedName = hashedName.substring(0, 5) + '.' + file.mimetype.split('/')[1];    // avoid long path
         cb(null, hashedName);
     }
 })

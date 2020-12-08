@@ -4,8 +4,8 @@
 
     <div class="content">
       <h1 class="title">Cine suntem noi?</h1>
-      <article v-if="textMain" class="left">
-        {{textMain.cine}}
+      <article v-if="cine" class="left">
+        {{cine}}
       </article>
     </div>
 
@@ -22,8 +22,8 @@
       <h1 class="title">Ce servicii oferim?</h1>
     </div>
     <div class="content2">
-      <article v-if="textMain" class="left">
-        {{textMain.servicii}}
+      <article v-if="servicii" class="left">
+        {{servicii}}
       </article>
     </div>
 
@@ -63,16 +63,24 @@
 </template>
 
 <script>
+import { log } from 'util'
+
+const qs = require('querystring')
+
 export default {
   data(){
     return {
         album: null,
-        textMain: null
+        cine: null,
+        servicii: null,
     }
   },
   mounted(){
-    this.$axios.get('/misc').then((res)=>{
-      this.textMain = res.data;
+  this.$axios.get("/misc/cine.txt").then((res)=>{
+      this.cine = res.data;
+    })
+    this.$axios.get("/misc/servicii.txt").then((res)=>{
+      this.servicii = res.data;
     })
   },
   methods: {

@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-
 const roles = require('../middlewares/checkRole');
-
 const {User} = require('../models')
 
 router.put('/:id', roles.allowAdmin, async (req, res) => {
@@ -34,5 +32,14 @@ router.get('/:username', async (req, res) => {
 
   res.send(user);
 });
+
+router.delete('/:id', async (req, res) => {
+  const user = await User.findByPk(req.params.id);
+  if (user) {
+    await user.destroy();
+    res.send(user);
+  }
+});
+
 
 module.exports = router
