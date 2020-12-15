@@ -24,6 +24,9 @@ module.exports = function(sequelize, DataTypes) {
       },
       linkPhoto: {
         type: DataTypes.STRING
+      },
+      sesionId: {
+        type: DataTypes.STRING(512)
       }
     });
 };

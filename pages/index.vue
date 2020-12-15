@@ -76,7 +76,7 @@ export default {
     }
   },
   mounted(){
-  this.$axios.get("/misc/cine.txt").then((res)=>{
+    this.$axios.get("/misc/cine.txt").then((res)=>{
       this.cine = res.data;
     })
     this.$axios.get("/misc/servicii.txt").then((res)=>{

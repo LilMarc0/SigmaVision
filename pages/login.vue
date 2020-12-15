@@ -22,13 +22,13 @@ export default {
     },
     methods: {
         handleLogin() {
-        if (this.user.email && this.user.password) {
-          this.$auth.loginWith('local', {data: this.user})
-          .then((res) => {
-            if(res.data.message === 'ok')
-                this.$router.push("/")
-            })
-        }
+            if (this.user.email && this.user.password) {
+            this.$auth.loginWith('local', {data: this.user})
+            .then((res) => {
+                if(res.data.message === 'ok')
+                    this.$router.push("/")
+                })
+            }
         }
     }
 }
