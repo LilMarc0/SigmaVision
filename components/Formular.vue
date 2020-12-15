@@ -7,7 +7,7 @@
         <b-input validation-message="Introduce o adresa de e-mail valida" type="email" v-model="model.email"></b-input>
       </b-field>
     <b-field label="Telefon" label-position="inside">
-        <b-input v-model="model.telefon"></b-input>
+        <b-input validation-message="Introduce un numar de telefon valid" type="tel" v-model="model.telefon"></b-input>
     </b-field>
     <b-field label="Mesaj" label-position="inside">
         <b-input minlength="5" type="textarea" v-model="model.mesaj"></b-input>

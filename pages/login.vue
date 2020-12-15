@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       <b-field label="Email" class="field">
-          <b-input v-model="user.email"></b-input>
+          <b-input type="email" v-model="user.email"></b-input>
       </b-field>
       <b-field label="Parola">
           <b-input type="password" v-model="user.password"></b-input>
